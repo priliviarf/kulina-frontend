@@ -8,13 +8,14 @@
  $black : #000;
  $dark-green : #653308;
  $dark-orange : #f88118;
- $gray : #717e81;
+ $grey : #717e81;
  $green : #27ae60;
- $light-gray : #f3f3f3;
+ $light-grey : #f3f3f3;
  $light-green : #6aca25;
  $light-white : #fdfdfe;
- $orange : #fd9941;
- $red : #f50a0a;
+ $light-orange : #f99755;
+ $orange : #fd7314;
+ $red : #af3227;
  $white : #fff;
  // ----------------------------------------
 
@@ -33,6 +34,20 @@
   -webkit-flex:  $values;
   -ms-flex:  $values;
   flex:  $values;
+}
+
+@mixin transition($time){
+	transition: all $time*1s ease-in-out ;
+	-webkit-transition: all $time*1s ease-in-out ;
+	-moz-transition: all $time*1s ease-in-out ;
+	-o-transition: all $time*1s ease-in-out ;
+}
+
+@mixin radius($rad){
+	border-radius: $rad ;
+	-webkit-border-radius: $rad ;
+	-moz-border-radius: $rad ;
+	-o-border-radius: $rad ;
 }
 
 @mixin overlay($color,$opa) {
@@ -74,13 +89,16 @@
 }
 // font-color
 .gra {
-  color: $gray;
+  color: $grey;
 }
 .gre {
   color: $green;
 }
 .lig-gre {
   color: $light-green;
+}
+.or {
+  color: $orange;
 }
 .red {
   color: $red;
@@ -142,7 +160,7 @@ body {
     &>div {
       flex: 3;
       p {
-        color: $gray;
+        color: $grey;
       }
     }
   }
@@ -151,26 +169,26 @@ body {
   padding: 60px 0 20px;
   background-color: $light-white;
 }
-// ---------------------------------------- bootstrap reset
-.navbar {
-  justify-content: space-between;
-
-  .navbar-collapse {
-    flex-grow: 0;
-  }
+.overlay {
+  background: linear-gradient(to right, $red, $orange);
+  height: 100%;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
 }
-.card {
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  padding: 20px;
+.z-1 {
+  z-index: 1;
+}
+.btn-round {
+  @include radius(50%);
 }
 footer {
   div.col-md-10 {
     @include flexbox();
     align-items: center;
-    border-top: 1px solid grey;
+    border-top: 2px solid $light-grey;
     justify-content: space-between;
     padding: 20px 0 0;
   }
@@ -179,8 +197,62 @@ footer {
     padding: 0 0 0 5px;
     li {
       margin: 0 5px;
+      a {
+        @include transition(0.3);
+        color: $grey;
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
+}
+a > .fa-facebook:hover {
+  color: #3b5999; }
+
+a > .fa-instagram:hover {
+  color: #fb3958; }
+
+a > .fa-twitter:hover {
+  color: #2ac6f7; }
+a > .fa-line:hover {
+  color: #00b900;
+}
+// ---------------------------------------- bootstrap reset
+.navbar {
+  justify-content: space-between;
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+  .navbar-nav {
+    li a {
+      @include transition(0.3);
+      font-family: 'Roboto-Bold', sans-serif;
+    }
+  }
+}
+.btn {
+  @include transition(0.3);
+  &.btn-warning {
+    background-color: $orange;
+    border: none;
+    color: $white;
+    padding: 5px 25px;
+    &:hover {
+      background-color: $light-orange;
+    }
+  }
+}
+.card {
+  align-items: center;
+  border: none;
+  box-shadow: 0px 0px 40px -10px $grey;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
 }
 // ---------------------------------------- flex
 .fle {
