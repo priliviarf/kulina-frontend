@@ -1,0 +1,178 @@
+/*
+ * Style for kulina-frontend (preliminary test)
+ * Made by Prilivia Ruli Fatmawati
+ * Yogyakarta, 5 March 2018 2:37PM
+ */
+
+ // ---------------------- variable
+ $black : #000;
+ $dark-green : #653308;
+ $dark-orange : #f88118;
+ $gray : #95a5a6;
+ $green : #27ae60;
+ $light-gray : #f3f3f3;
+ $light-green : #6aca25;
+ $orange : #fd9941;
+ $white : #fff;
+ // ----------------------------------------
+
+ // ---------------------- mixin'
+ @mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin overlay($color,$opa) {
+  background-color: $color;
+  height: 100%;
+  opacity: $opa;
+  position: absolute;
+  width: 100%;
+}
+ // ----------------------------------------
+
+// ----------------------- fonts
+@font-face {
+  font-family: 'Roboto-Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+}
+.robo-bold {
+  font-family: 'Roboto-Bold';
+}
+.robo-reg {
+  font-family: 'Roboto-Regular';
+}
+.robo-light {
+  font-family: 'Roboto-Light';
+}
+// font-color
+.gra {
+  color: $gray;
+}
+.gre {
+  color: $green;
+}
+.lig-gre {
+  color: $light-green;
+}
+.wh {
+  color: $white;
+}
+// font-size
+.smaller {
+  font-size: 0.8em;
+}
+.normal {
+  font-size: 1em;
+}
+.baby-big {
+  font-size: 1.2em;
+}
+.big {
+  font-size: 1.5em;
+}
+.more-big {
+  font-size: 2.5em;
+}
+.bigger {
+  font-size: 3em;
+}
+// font-style
+.lt-lig {
+  font-family: 'Lato-Light';
+}
+.lt-reg {
+  font-family: 'Lato-Regular';
+}
+.lt-bol {
+  font-family: 'Lato-Bold';
+}
+.lt-bla {
+  font-family: 'Lato-Black';
+}
+// ----------------------------------------
+// ---------------------------- margin
+@for $i from 0 through 6{
+	.mg-#{$i*5}{
+		margin : $i*5px ;
+	}
+	.mg-bt-#{$i*5}{
+		margin-top : $i*5px ;
+		margin-bottom : $i*5px ;
+	}
+	.mg-lr-#{$i*5}{
+		margin-left : $i*5px ;
+		margin-right : $i*5px ;
+	}
+	.mg-t-#{$i*5}{
+		margin-top : $i*5px ;
+	}
+	.mg-b-#{$i*5}{
+		margin-bottom : $i*5px ;
+	}
+	.mg-l-#{$i*5}{
+		margin-left : $i*5px ;
+	}
+	.mg-r-#{$i*5}{
+		margin-right : $i*5px ;
+	}
+}
+@for $i from 0 through 6{
+	.pd-#{$i*5}{
+		margin : $i*5px ;
+	}
+	.pd-bt-#{$i*5}{
+		margin-top : $i*5px ;
+		margin-bottom : $i*5px ;
+	}
+	.pd-lr-#{$i*5}{
+		margin-left : $i*5px ;
+		margin-right : $i*5px ;
+	}
+	.pd-t-#{$i*5}{
+		margin-top : $i*5px ;
+	}
+	.pd-b-#{$i*5}{
+		margin-bottom : $i*5px ;
+	}
+	.pd-l-#{$i*5}{
+		margin-left : $i*5px ;
+	}
+	.pd-r-#{$i*5}{
+		margin-right : $i*5px ;
+	}
+}
+
+// ----------------------------------------
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto-Regular';
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
