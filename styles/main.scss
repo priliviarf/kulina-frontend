@@ -8,11 +8,13 @@
  $black : #000;
  $dark-green : #653308;
  $dark-orange : #f88118;
- $gray : #95a5a6;
+ $gray : #717e81;
  $green : #27ae60;
  $light-gray : #f3f3f3;
  $light-green : #6aca25;
+ $light-white : #fdfdfe;
  $orange : #fd9941;
+ $red : #f50a0a;
  $white : #fff;
  // ----------------------------------------
 
@@ -80,6 +82,9 @@
 .lig-gre {
   color: $light-green;
 }
+.red {
+  color: $red;
+}
 .wh {
   color: $white;
 }
@@ -102,71 +107,6 @@
 .bigger {
   font-size: 3em;
 }
-// font-style
-.lt-lig {
-  font-family: 'Lato-Light';
-}
-.lt-reg {
-  font-family: 'Lato-Regular';
-}
-.lt-bol {
-  font-family: 'Lato-Bold';
-}
-.lt-bla {
-  font-family: 'Lato-Black';
-}
-// ----------------------------------------
-// ---------------------------- margin
-@for $i from 0 through 6{
-	.mg-#{$i*5}{
-		margin : $i*5px ;
-	}
-	.mg-bt-#{$i*5}{
-		margin-top : $i*5px ;
-		margin-bottom : $i*5px ;
-	}
-	.mg-lr-#{$i*5}{
-		margin-left : $i*5px ;
-		margin-right : $i*5px ;
-	}
-	.mg-t-#{$i*5}{
-		margin-top : $i*5px ;
-	}
-	.mg-b-#{$i*5}{
-		margin-bottom : $i*5px ;
-	}
-	.mg-l-#{$i*5}{
-		margin-left : $i*5px ;
-	}
-	.mg-r-#{$i*5}{
-		margin-right : $i*5px ;
-	}
-}
-@for $i from 0 through 6{
-	.pd-#{$i*5}{
-		margin : $i*5px ;
-	}
-	.pd-bt-#{$i*5}{
-		margin-top : $i*5px ;
-		margin-bottom : $i*5px ;
-	}
-	.pd-lr-#{$i*5}{
-		margin-left : $i*5px ;
-		margin-right : $i*5px ;
-	}
-	.pd-t-#{$i*5}{
-		margin-top : $i*5px ;
-	}
-	.pd-b-#{$i*5}{
-		margin-bottom : $i*5px ;
-	}
-	.pd-l-#{$i*5}{
-		margin-left : $i*5px ;
-	}
-	.pd-r-#{$i*5}{
-		margin-right : $i*5px ;
-	}
-}
 
 // ----------------------------------------
 body {
@@ -175,4 +115,77 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
+}
+#hero-section {
+  @include flexbox();
+  align-items: center;
+  background-attachment: fixed;
+  background-image: url(../image/hero-image.jpg);
+  background-size: cover;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 20px;
+
+  nav {
+    width: 100%;
+  }
+}
+#second-section,#third-section {
+  padding: 60px 0;
+  &>div {
+    @include flexbox();
+    h3 {
+      flex: 1;
+      padding: 0 20px;
+    }
+    &>div {
+      flex: 3;
+      p {
+        color: $gray;
+      }
+    }
+  }
+}
+#third-section {
+  padding: 60px 0 20px;
+  background-color: $light-white;
+}
+// ---------------------------------------- bootstrap reset
+.navbar {
+  justify-content: space-between;
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+}
+.card {
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+footer {
+  div.col-md-10 {
+    @include flexbox();
+    align-items: center;
+    border-top: 1px solid grey;
+    justify-content: space-between;
+    padding: 20px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0 0 0 5px;
+    li {
+      margin: 0 5px;
+    }
+  }
+}
+// ---------------------------------------- flex
+.fle {
+  @include flexbox();
+}
+.alg-center {
+  align-items: center;
 }
